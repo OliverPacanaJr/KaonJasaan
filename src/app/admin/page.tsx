@@ -11,7 +11,7 @@ export default function Admin() {
     const rows = (data ?? []) as unknown as A[]
     setList(rows)
     const paths = rows.flatMap(r => Object.values(r.docs))
-    if (paths.length) { const { data: s } = await sb.storage.from('kyc').createSignedUrls(paths, 900); setUrls(Object.fromEntries((s ?? []).map(x => [x.path ?? '', x.signedUrl]))) }
+    if (paths.length) { const { data: s } = await sb.storage.from('kyc').createSignedUrls(paths, 900); setUrls(Object.fromEntries((s ?? []).map(x => [x.path ?? '', x.signedUrl ?? '']))) }
   }, [])
   useEffect(() => { if (me?.role === 'admin') load() }, [me, load])
   async function review(id: string, approve: boolean) {
