@@ -1,0 +1,9 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+@layer base { body { @apply bg-foam text-ink antialiased; } :focus-visible { outline: 3px solid #0A4D68; outline-offset: 2px; } }
+@layer components {
+  .btn { @apply inline-flex items-center justify-center rounded-lg bg-sea px-5 py-3 font-bold text-white transition active:opacity-80 disabled:opacity-40; }
+  .field { @apply w-full rounded-lg border-2 border-ink/15 bg-white px-3 py-2.5 outline-none focus:border-sea; }
+  /* carinderia price-board leader: the one signature device of the UI */
+  .leader { flex: 1; margin: 0 .5rem .3rem; border-bottom: 2px dotted rgb(13 31 45 / .35); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
